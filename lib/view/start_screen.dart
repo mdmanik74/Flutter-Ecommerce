@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../widget/custom_button.dart';
 class StartScreen extends StatelessWidget {
   const StartScreen({Key? key}) : super(key: key);
 
@@ -24,7 +25,12 @@ class StartScreen extends StatelessWidget {
                            child: Text("Let's Join our community to cook better food !",style: Theme.of(context).textTheme.bodyLarge,),
                          ),
                    ),
-                  ],
+              const Padding(
+                padding: EdgeInsets.only(top:40),
+                child: CustomButton(),
+              ),
+
+              ],
                 )
             ),
           ],
