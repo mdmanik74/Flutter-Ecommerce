@@ -18,10 +18,11 @@ class StartScreen extends StatelessWidget {
                   children: [
                     Text('Start Cooking', style: Theme.of(context).textTheme.displayLarge,),
                    Padding(
-                     padding: const EdgeInsets.all(30.0),
+                     padding: const EdgeInsets.only(top: 20),
                      child: SizedBox(
                        width:210,
-                         child: Text("Let's Join our community to cook better food !",style: Theme.of(context).textTheme.bodyLarge,)),
+                           child: Text("Let's Join our community to cook better food !",style: Theme.of(context).textTheme.bodyLarge,),
+                         ),
                    ),
                   ],
                 )
