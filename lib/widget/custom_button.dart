@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hello_world/view/sign_screen.dart';
 class CustomButton extends StatelessWidget {
   const CustomButton({Key? key}) : super(key: key);
 
@@ -13,7 +14,21 @@ class CustomButton extends StatelessWidget {
         color: Colors.lightBlue,
         borderRadius: BorderRadius.circular(30),
       ),
-      child: const Text(
+      child: InkWell(
+        child: const Text('Get Started', style: TextStyle(
+            color: Colors.white,
+            fontFamily: 'Inter',
+            fontWeight: FontWeight.w700,
+            fontSize: 16),), onTap: (){
+Navigator.push(context, MaterialPageRoute(builder: (context)=>const SignInScreen(),),);
+    },
+      )
+    );
+  }
+}
+
+/*
+const Text(
         'Get Started',
         style: TextStyle(
             color: Colors.white,
@@ -21,6 +36,4 @@ class CustomButton extends StatelessWidget {
             fontWeight: FontWeight.w700,
             fontSize: 16),
       ),
-    );
-  }
-}
+ */
