@@ -4,18 +4,20 @@ import 'package:flutter/material.dart';
 
 
 class CustomTextForm extends StatelessWidget {
-   CustomTextForm({Key? key,required this.obscureText, required this.onTapSuffixIcon, this.suffixIcon, required this.hint, required this.prefixIcon}) : super(key: key);
+   CustomTextForm({Key? key,required this.validator,required this.obscureText, required this.onTapSuffixIcon, this.suffixIcon, required this.hint, required this.prefixIcon}) : super(key: key);
  String hint;
  IconData prefixIcon;
  IconData? suffixIcon;
  VoidCallback onTapSuffixIcon;
  bool obscureText;
+ String ? Function(String?)? validator;
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 10),
         child: TextFormField(
+          validator: validator,
           obscureText: obscureText,
           keyboardType: TextInputType.emailAddress,
           decoration: InputDecoration(
