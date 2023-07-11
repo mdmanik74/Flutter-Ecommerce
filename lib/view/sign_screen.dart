@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hello_world/view/sign_up_screen.dart';
 import 'package:iconly/iconly.dart';
 import '../widget/custom_textform.dart';
 
@@ -11,7 +12,8 @@ class SignInScreen extends StatefulWidget {
 
 class _SignInScreenState extends State<SignInScreen> {
   bool obscure = true;
-final key = GlobalKey<FormState>();
+  final key = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -37,10 +39,10 @@ final key = GlobalKey<FormState>();
                           style: Theme.of(context).textTheme.bodyLarge,
                         ),
                         Padding(
-                          padding: const EdgeInsets.only(top: 40),
+                          padding: const EdgeInsets.only(top: 30),
                           child: CustomTextForm(
-                            validator: (value){
-                              if(value!.isEmpty){
+                            validator: (value) {
+                              if (value!.isEmpty) {
                                 return "Please Enter the email";
                               }
                               return null;
@@ -52,8 +54,8 @@ final key = GlobalKey<FormState>();
                           ),
                         ),
                         CustomTextForm(
-                          validator: (value){
-                            if(value!.isEmpty){
+                          validator: (value) {
+                            if (value!.isEmpty) {
                               return "Please Enter the password";
                             }
                             return null;
@@ -76,38 +78,63 @@ final key = GlobalKey<FormState>();
                             Text(
                               'Forget Password ?',
                               style: Theme.of(context).textTheme.bodyLarge,
-                            )
+                            ),
                           ],
-                        )
-                      ]),
-                    ),
-                  ),
-                  Expanded(
-                    child: Center(
-                      child: Container(
-                        alignment: Alignment.center,
-                        margin: const EdgeInsets.symmetric(horizontal: 24),
-                        height: 56,
-                        decoration: BoxDecoration(
-                          color: Colors.lightBlue,
-                          borderRadius: BorderRadius.circular(30),
                         ),
-                        child: InkWell(
-                          child: const Text(
-                            'Sign In',
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontFamily: 'Inter',
-                                fontWeight: FontWeight.w700,
-                                fontSize: 16),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 40),
+                          child: Container(
+                            alignment: Alignment.center,
+                            margin: const EdgeInsets.symmetric(horizontal: 24),
+                            height: 56,
+                            decoration: BoxDecoration(
+                              color: Colors.lightBlue,
+                              borderRadius: BorderRadius.circular(30),
+                            ),
+                            child: InkWell(
+                              child: const Text(
+                                'Sign In',
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontFamily: 'Inter',
+                                    fontWeight: FontWeight.w700,
+                                    fontSize: 16),
+                              ),
+                              onTap: () {
+                                setState(() {
+                                  key.currentState!.validate();
+                                });
+                              },
+                            ),
                           ),
-                          onTap: () {
-                            setState(() {
-                              key.currentState!.validate();
-                            });
-                          },
                         ),
-                      ),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 40),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Text(
+                                "Don't have any account ?",
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .bodyLarge!
+                                    .copyWith(color: Colors.black),
+                              ),
+                              TextButton(
+                                  onPressed: () {
+                                    Navigator.push(context, MaterialPageRoute(builder: (context)=>const SignUpScreen(),));
+                                  },
+                                  child: Text(
+                                    'Click Here',
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .bodyMedium!
+                                        .copyWith(color: Colors.red),
+                                  ))
+                            ],
+                          ),
+                        ),
+                      ]),
                     ),
                   ),
                 ],

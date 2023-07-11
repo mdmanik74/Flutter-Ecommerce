@@ -15,7 +15,7 @@ class CustomTextForm extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 10),
+        padding: const EdgeInsets.symmetric(vertical: 20),
         child: TextFormField(
           validator: validator,
           obscureText: obscureText,
