@@ -16,14 +16,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
+    return Scrollbar(
         child: Scaffold(
-          body: SingleChildScrollView(
-            child: SizedBox(
-              height: MediaQuery.of(context).size.height,
+          body: SafeArea(
+
               child: Center(
                 child: Padding(
-                  padding: const EdgeInsets.all(20),
+                  padding: const EdgeInsets.all(10),
                   child: Column(
                     children: [
                       Expanded(
@@ -34,12 +33,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               'Welcome!',
                               style: Theme.of(context).textTheme.displayLarge,
                             ),
+                            SizedBox(height: 10,),
                             Text(
                               'Please Enter Your Account Here',
                               style: Theme.of(context).textTheme.bodyLarge,
                             ),
                             Padding(
-                              padding: const EdgeInsets.only(top: 30),
+                              padding: const EdgeInsets.only(top: 20),
                               child: CustomTextForm(
                                 validator: (value) {
                                   if (value!.isEmpty) {
@@ -91,6 +91,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                   Text(' Must be 6 Character',
                                     style: Theme.of(context).textTheme.bodyMedium,),
                                 ],),
+
                                 SizedBox(height: 10,),
                                 Row(children:  [
                                   const CircleAvatar(
@@ -107,7 +108,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             ),
                             ),
 
-                         Container(
+                            Center(
+                              child: Container(
                                 alignment: Alignment.center,
                                 margin: const EdgeInsets.symmetric(horizontal: 24),
                                 height: 56,
@@ -131,6 +133,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                   },
                                 ),
                               ),
+                            ),
 
 
                           ]),
@@ -142,6 +145,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
               ),
             ),
           ),
-        ));
+        );
   }
 }
